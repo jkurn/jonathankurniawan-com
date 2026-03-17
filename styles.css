@@ -1,0 +1,444 @@
+/* ===================================
+   Jonathan Kurniawan — Personal Site
+   EB Garamond, Teal #008080, 660px
+   =================================== */
+
+:root {
+  --teal: #008080;
+  --teal-hover: #006b6b;
+  --text: #1a1a1a;
+  --text-secondary: #3a3a3a;
+  --text-muted: #777777;
+  --bg: #ffffff;
+  --bg-subtle: #fafaf8;
+  --border: #e2e2e2;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.75;
+  font-size: 19px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Navigation ---- */
+nav {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+nav .nav-name a {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+nav .nav-name a:hover {
+  color: var(--teal);
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+}
+
+nav .nav-links a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active {
+  color: var(--teal);
+}
+
+/* ---- Page Layout ---- */
+.page {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* ---- Page Header (used on subpages) ---- */
+.page-header {
+  margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.page-header .page-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ---- Home Hero ---- */
+.hero {
+  padding: 4.5rem 0 3rem;
+}
+
+.hero .thesis {
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-bottom: 2rem;
+  max-width: 620px;
+}
+
+.hero .thesis em {
+  color: var(--teal);
+  font-style: normal;
+}
+
+.hero .intro {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 0.6rem;
+}
+
+.hero .name-line {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-top: 1.8rem;
+}
+
+.hero .name-line strong {
+  color: var(--text);
+}
+
+/* ---- Home Proof Strip ---- */
+.proof-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.8rem 0;
+  margin: 1rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.proof-strip .proof-item .proof-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.proof-strip .proof-item .proof-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 0.1rem;
+}
+
+/* ---- Home Section Links ---- */
+.home-sections {
+  margin-top: 2.5rem;
+}
+
+.home-section-link {
+  display: block;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.home-section-link:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.home-section-link:hover {
+  color: var(--teal);
+}
+
+.home-section-link .section-link-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.home-section-link .section-link-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.home-section-link:hover .section-link-desc {
+  color: var(--teal);
+}
+
+/* ---- Sections (subpages) ---- */
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---- Prose ---- */
+.prose p {
+  margin-bottom: 1.3rem;
+  color: var(--text-secondary);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ---- Beliefs / Arguments ---- */
+.argument-list {
+  list-style: none;
+  counter-reset: argument;
+}
+
+.argument-list li {
+  margin-bottom: 1.4rem;
+  padding-left: 0;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.argument-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Work Items ---- */
+.work-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.work-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.work-item .work-client {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.work-item .work-desc {
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.work-item .work-outcome {
+  color: var(--teal);
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+/* ---- Roles / Career ---- */
+.role {
+  margin-bottom: 1.4rem;
+}
+
+.role:last-child {
+  margin-bottom: 0;
+}
+
+.role-headline {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.role-org {
+  color: var(--teal);
+  font-weight: 500;
+}
+
+.role-date {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.role-desc {
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+/* ---- Career highlight callout ---- */
+.career-highlight {
+  border-left: 3px solid var(--teal);
+  padding-left: 1.2rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.career-highlight .role-headline {
+  font-size: 1.05rem;
+}
+
+.career-highlight .highlight-metrics {
+  color: var(--teal);
+  font-weight: 500;
+  margin-top: 0.2rem;
+}
+
+/* ---- Writing / Talks Lists ---- */
+.entry-list {
+  list-style: none;
+}
+
+.entry-list li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.entry-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.entry-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.entry-list a:hover {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.entry-list .entry-meta {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-top: 0.15rem;
+}
+
+.entry-list .entry-title {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ---- Contact Links ---- */
+.contact-links {
+  list-style: none;
+}
+
+.contact-links li {
+  margin-bottom: 0.6rem;
+}
+
+.contact-links a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.contact-links a:hover {
+  border-color: var(--teal);
+}
+
+/* ---- Footer ---- */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  nav {
+    padding: 1.5rem 1.25rem 0;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  nav .nav-links {
+    gap: 1.2rem;
+  }
+
+  .page {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .hero .thesis {
+    font-size: 1.35rem;
+  }
+
+  .proof-strip {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* ---- Print ---- */
+@media print {
+  body { font-size: 12pt; }
+  nav { display: none; }
+  .page { max-width: 100%; padding: 0; }
+  a { color: var(--text); }
+}
