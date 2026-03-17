@@ -1,20 +1,47 @@
 /* ===================================
    Jonathan Kurniawan — Personal Site
-   EB Garamond, Teal #008080, 660px
+   EB Garamond + teal #008080
+   Editorial minimalism, 660px column
+   8px spacing grid
    =================================== */
 
+/* ---- Design Tokens ---- */
 :root {
+  /* Color */
   --teal: #008080;
-  --teal-hover: #006b6b;
+  --teal-hover: #006666;
+  --teal-faint: rgba(0, 128, 128, 0.06);
   --text: #1a1a1a;
-  --text-secondary: #3a3a3a;
-  --text-muted: #777777;
-  --bg: #ffffff;
-  --bg-subtle: #fafaf8;
-  --border: #e2e2e2;
+  --text-secondary: #363636;
+  --text-muted: #6e6e6e;
+  --bg: #faf9f7;
+  --bg-white: #ffffff;
+  --border: #e0ddd8;
+  --border-light: #eceae6;
+
+  /* Type Scale (1.25 ratio, base 19px) */
+  --text-xs: 0.8rem;      /* ~15px */
+  --text-sm: 0.9rem;      /* ~17px */
+  --text-base: 1rem;      /* 19px */
+  --text-md: 1.1rem;      /* ~21px */
+  --text-lg: 1.75rem;     /* ~33px — thesis */
+  --text-xl: 2.1rem;      /* ~40px — page titles */
+  --text-proof: 1.6rem;   /* ~30px — proof numbers */
+
+  /* Spacing (8px grid) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 1rem;      /* 16px */
+  --space-4: 1.5rem;    /* 24px */
+  --space-5: 2rem;      /* 32px */
+  --space-6: 2.5rem;    /* 40px */
+  --space-7: 3rem;      /* 48px */
+  --space-8: 4rem;      /* 64px */
+  --space-9: 5rem;      /* 80px */
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ---- Reset ---- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -31,22 +58,47 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Selection styling */
+::selection {
+  background: var(--teal);
+  color: var(--bg-white);
+}
+
+/* ---- Masthead Line (visual signature) ---- */
+body::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--teal);
+}
+
+/* ---- Focus States (accessibility) ---- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ---- Navigation ---- */
 nav {
   max-width: 660px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 0;
+  padding: var(--space-5) var(--space-4) var(--space-4);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  border-bottom: 1px solid var(--border-light);
 }
 
 nav .nav-name a {
-  font-size: 1.05rem;
+  font-size: var(--text-base);
   font-weight: 600;
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.01em;
+  transition: color 0.2s ease;
 }
 
 nav .nav-name a:hover {
@@ -55,169 +107,195 @@ nav .nav-name a:hover {
 
 nav .nav-links {
   display: flex;
-  gap: 1.6rem;
+  gap: var(--space-4);
   list-style: none;
 }
 
 nav .nav-links a {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--text-muted);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
   letter-spacing: 0.01em;
 }
 
-nav .nav-links a:hover,
+nav .nav-links a:hover {
+  color: var(--teal);
+}
+
 nav .nav-links a.active {
   color: var(--teal);
+  font-weight: 500;
 }
 
 /* ---- Page Layout ---- */
 .page {
   max-width: 660px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 5rem;
+  padding: var(--space-7) var(--space-4) var(--space-9);
 }
 
-/* ---- Page Header (used on subpages) ---- */
+/* ---- Page Header (subpages) ---- */
 .page-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-7);
 }
 
 .page-header h1 {
-  font-size: 2rem;
+  font-size: var(--text-xl);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
   color: var(--text);
-  margin-bottom: 0.4rem;
+  margin-bottom: var(--space-2);
 }
 
 .page-header .page-subtitle {
-  font-size: 1.05rem;
+  font-size: var(--text-md);
   color: var(--text-muted);
   line-height: 1.7;
 }
 
 /* ---- Home Hero ---- */
 .hero {
-  padding: 4.5rem 0 3rem;
+  padding: var(--space-8) 0 var(--space-5);
 }
 
 .hero .thesis {
-  font-size: 1.65rem;
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: -0.015em;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
   color: var(--text);
-  margin-bottom: 2rem;
-  max-width: 620px;
+  margin-bottom: var(--space-5);
 }
 
 .hero .thesis em {
   color: var(--teal);
-  font-style: normal;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .hero .intro {
-  font-size: 1.05rem;
+  font-size: var(--text-md);
   color: var(--text-secondary);
   line-height: 1.8;
-  margin-bottom: 0.6rem;
+  margin-bottom: var(--space-2);
 }
 
 .hero .name-line {
-  font-size: 1.05rem;
+  font-size: var(--text-md);
   color: var(--text-muted);
-  margin-top: 1.8rem;
+  margin-top: var(--space-5);
 }
 
 .hero .name-line strong {
   color: var(--text);
+  font-weight: 600;
 }
 
 /* ---- Home Proof Strip ---- */
 .proof-strip {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 1.8rem 0;
-  margin: 1rem 0 2.5rem;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: var(--space-5) var(--space-4);
+  margin: var(--space-3) 0 var(--space-7);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: var(--space-4);
 }
 
 .proof-strip .proof-item .proof-number {
-  font-size: 1.4rem;
+  font-size: var(--text-proof);
   font-weight: 700;
   color: var(--teal);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .proof-strip .proof-item .proof-label {
-  font-size: 0.82rem;
+  font-size: var(--text-xs);
   color: var(--text-muted);
-  line-height: 1.4;
-  margin-top: 0.1rem;
+  line-height: 1.45;
+  margin-top: var(--space-1);
 }
 
 /* ---- Home Section Links ---- */
 .home-sections {
-  margin-top: 2.5rem;
+  margin-top: var(--space-5);
 }
 
 .home-section-link {
-  display: block;
-  padding: 1.2rem 0;
-  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border-light);
   text-decoration: none;
   color: var(--text);
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .home-section-link:first-child {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-light);
 }
 
 .home-section-link:hover {
   color: var(--teal);
 }
 
+.home-section-link:hover .section-link-arrow {
+  transform: translateX(4px);
+  color: var(--teal);
+}
+
+.home-section-link .section-link-content {
+  flex: 1;
+}
+
 .home-section-link .section-link-title {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--text-base);
 }
 
 .home-section-link .section-link-desc {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--text-muted);
-  margin-top: 0.15rem;
+  margin-top: var(--space-1);
+  transition: color 0.2s ease;
 }
 
 .home-section-link:hover .section-link-desc {
   color: var(--teal);
 }
 
+.home-section-link .section-link-arrow {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-left: var(--space-3);
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
 /* ---- Sections (subpages) ---- */
 section {
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-7);
 }
 
 section h2 {
-  font-size: 0.9rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   color: var(--teal);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.5rem;
+  letter-spacing: 0.14em;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--border);
 }
 
 /* ---- Prose ---- */
 .prose p {
-  margin-bottom: 1.3rem;
+  margin-bottom: var(--space-4);
   color: var(--text-secondary);
 }
 
@@ -237,10 +315,16 @@ section h2 {
 }
 
 .argument-list li {
-  margin-bottom: 1.4rem;
-  padding-left: 0;
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--border-light);
   color: var(--text-secondary);
   line-height: 1.8;
+  transition: border-color 0.3s ease;
+}
+
+.argument-list li:hover {
+  border-left-color: var(--teal);
 }
 
 .argument-list li:last-child {
@@ -249,9 +333,9 @@ section h2 {
 
 /* ---- Work Items ---- */
 .work-item {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .work-item:last-child {
@@ -263,23 +347,23 @@ section h2 {
 .work-item .work-client {
   font-weight: 600;
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: var(--text-md);
 }
 
 .work-item .work-desc {
   color: var(--text-secondary);
-  margin-top: 0.25rem;
+  margin-top: var(--space-1);
 }
 
 .work-item .work-outcome {
   color: var(--teal);
   font-weight: 500;
-  margin-top: 0.35rem;
+  margin-top: var(--space-2);
 }
 
 /* ---- Roles / Career ---- */
 .role {
-  margin-bottom: 1.4rem;
+  margin-bottom: var(--space-4);
 }
 
 .role:last-child {
@@ -298,29 +382,31 @@ section h2 {
 
 .role-date {
   color: var(--text-muted);
-  font-size: 0.88rem;
+  font-size: var(--text-sm);
 }
 
 .role-desc {
   color: var(--text-secondary);
-  margin-top: 0.15rem;
+  margin-top: var(--space-1);
 }
 
 /* ---- Career highlight callout ---- */
 .career-highlight {
   border-left: 3px solid var(--teal);
-  padding-left: 1.2rem;
-  margin: 1rem 0 1.4rem;
+  padding: var(--space-4);
+  margin: var(--space-3) 0 var(--space-4);
+  background: var(--teal-faint);
+  border-radius: 0 4px 4px 0;
 }
 
 .career-highlight .role-headline {
-  font-size: 1.05rem;
+  font-size: var(--text-md);
 }
 
 .career-highlight .highlight-metrics {
   color: var(--teal);
-  font-weight: 500;
-  margin-top: 0.2rem;
+  font-weight: 600;
+  margin-top: var(--space-2);
 }
 
 /* ---- Writing / Talks Lists ---- */
@@ -329,9 +415,9 @@ section h2 {
 }
 
 .entry-list li {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .entry-list li:last-child {
@@ -345,7 +431,7 @@ section h2 {
   text-decoration: none;
   font-weight: 500;
   border-bottom: 1px solid var(--border);
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .entry-list a:hover {
@@ -355,8 +441,8 @@ section h2 {
 
 .entry-list .entry-meta {
   color: var(--text-muted);
-  font-size: 0.88rem;
-  margin-top: 0.15rem;
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
 }
 
 .entry-list .entry-title {
@@ -370,14 +456,14 @@ section h2 {
 }
 
 .contact-links li {
-  margin-bottom: 0.6rem;
+  margin-bottom: var(--space-2);
 }
 
 .contact-links a {
   color: var(--teal);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s ease;
 }
 
 .contact-links a:hover {
@@ -386,11 +472,11 @@ section h2 {
 
 /* ---- Footer ---- */
 .footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: var(--text-xs);
 }
 
 /* ---- Responsive ---- */
@@ -400,45 +486,68 @@ section h2 {
   }
 
   nav {
-    padding: 1.5rem 1.25rem 0;
+    padding: var(--space-4) var(--space-3) var(--space-3);
     flex-direction: column;
-    gap: 0.6rem;
+    gap: var(--space-2);
   }
 
   nav .nav-links {
-    gap: 1.2rem;
+    gap: var(--space-3);
   }
 
   .page {
-    padding: 2rem 1.25rem 4rem;
+    padding: var(--space-5) var(--space-3) var(--space-8);
   }
 
   .hero {
-    padding: 2.5rem 0 2rem;
+    padding: var(--space-6) 0 var(--space-4);
   }
 
   .hero .thesis {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 
   .proof-strip {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: var(--space-3);
   }
 
   .page-header h1 {
-    font-size: 1.7rem;
+    font-size: 1.75rem;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-5);
   }
 
   section {
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--space-5);
+  }
+
+  .home-section-link .section-link-arrow {
+    display: none;
+  }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
 
 /* ---- Print ---- */
 @media print {
-  body { font-size: 12pt; }
+  body { font-size: 12pt; background: white; }
+  body::before { display: none; }
   nav { display: none; }
   .page { max-width: 100%; padding: 0; }
   a { color: var(--text); }
+  section h2 { color: var(--text); }
+  .proof-strip { border: 1px solid #ccc; }
 }
