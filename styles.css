@@ -19,14 +19,13 @@
   --border: #e0ddd8;
   --border-light: #eceae6;
 
-  /* Type Scale (1.25 ratio, base 19px) */
-  --text-xs: 0.8rem;      /* ~15px */
-  --text-sm: 0.9rem;      /* ~17px */
-  --text-base: 1rem;      /* 19px */
-  --text-md: 1.1rem;      /* ~21px */
-  --text-lg: 1.75rem;     /* ~33px — thesis */
-  --text-xl: 2.1rem;      /* ~40px — page titles */
-  --text-proof: 1.6rem;   /* ~30px — proof numbers */
+  /* Type Scale (base 21px) */
+  --text-xs: 0.78rem;     /* ~16px */
+  --text-sm: 0.88rem;     /* ~18px */
+  --text-base: 1rem;      /* 21px */
+  --text-md: 1.1rem;      /* ~23px */
+  --text-lg: 1.7rem;      /* ~36px — thesis */
+  --text-xl: 2rem;        /* ~42px — page titles */
 
   /* Spacing (8px grid) */
   --space-1: 0.25rem;   /* 4px */
@@ -53,7 +52,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.75;
-  font-size: 19px;
+  font-size: 21px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -83,7 +82,7 @@ button:focus-visible {
 
 /* ---- Navigation ---- */
 nav {
-  max-width: 660px;
+  max-width: 780px;
   margin: 0 auto;
   padding: var(--space-5) var(--space-4) var(--space-4);
   display: flex;
@@ -130,7 +129,7 @@ nav .nav-links a.active {
 
 /* ---- Page Layout ---- */
 .page {
-  max-width: 660px;
+  max-width: 780px;
   margin: 0 auto;
   padding: var(--space-7) var(--space-4) var(--space-9);
 }
@@ -193,31 +192,19 @@ nav .nav-links a.active {
   font-weight: 600;
 }
 
-/* ---- Home Proof Strip ---- */
-.proof-strip {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: var(--space-5) var(--space-4);
-  margin: var(--space-3) 0 var(--space-7);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
-}
-
-.proof-strip .proof-item .proof-number {
-  font-size: var(--text-proof);
-  font-weight: 700;
-  color: var(--teal);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-}
-
-.proof-strip .proof-item .proof-label {
-  font-size: var(--text-xs);
+/* ---- Anchor Credential ---- */
+.anchor-credential {
   color: var(--text-muted);
-  line-height: 1.45;
-  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+  line-height: 1.7;
+}
+
+.anchor-credential strong {
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 /* ---- Home Section Links ---- */
@@ -482,7 +469,7 @@ section h2 {
 /* ---- Responsive ---- */
 @media (max-width: 600px) {
   body {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   nav {
@@ -505,11 +492,6 @@ section h2 {
 
   .hero .thesis {
     font-size: 1.4rem;
-  }
-
-  .proof-strip {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
   }
 
   .page-header h1 {
@@ -549,5 +531,5 @@ section h2 {
   .page { max-width: 100%; padding: 0; }
   a { color: var(--text); }
   section h2 { color: var(--text); }
-  .proof-strip { border: 1px solid #ccc; }
+  .anchor-credential { border-top: 1px solid #ccc; }
 }
