@@ -19,13 +19,13 @@
   --border: #e0ddd8;
   --border-light: #eceae6;
 
-  /* Type Scale (base 21px) */
-  --text-xs: 0.78rem;     /* ~16px */
-  --text-sm: 0.88rem;     /* ~18px */
-  --text-base: 1rem;      /* 21px */
-  --text-md: 1.1rem;      /* ~23px */
-  --text-lg: 1.7rem;      /* ~36px — thesis */
-  --text-xl: 2rem;        /* ~42px — page titles */
+  /* Type Scale (base 22px) */
+  --text-xs: 0.75rem;     /* ~16px */
+  --text-sm: 0.86rem;     /* ~19px */
+  --text-base: 1rem;      /* 22px */
+  --text-md: 1.12rem;     /* ~25px */
+  --text-lg: 1.8rem;      /* ~40px — thesis */
+  --text-xl: 2.2rem;      /* ~48px — page titles */
 
   /* Spacing (8px grid) */
   --space-1: 0.25rem;   /* 4px */
@@ -37,6 +37,20 @@
   --space-7: 3rem;      /* 48px */
   --space-8: 4rem;      /* 64px */
   --space-9: 5rem;      /* 80px */
+}
+
+/* ---- Dark Theme ---- */
+[data-theme="dark"] {
+  --teal: #2dd4bf;
+  --teal-hover: #5eead4;
+  --teal-faint: rgba(45, 212, 191, 0.08);
+  --text: #e8e6e3;
+  --text-secondary: #c8c5c0;
+  --text-muted: #8a8580;
+  --bg: #1a1917;
+  --bg-white: #242320;
+  --border: #3a3835;
+  --border-light: #2e2c29;
 }
 
 /* ---- Reset ---- */
@@ -52,7 +66,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.75;
-  font-size: 21px;
+  font-size: 22px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -82,7 +96,7 @@ button:focus-visible {
 
 /* ---- Navigation ---- */
 nav {
-  max-width: 780px;
+  max-width: 860px;
   margin: 0 auto;
   padding: var(--space-5) var(--space-4) var(--space-4);
   display: flex;
@@ -129,7 +143,7 @@ nav .nav-links a.active {
 
 /* ---- Page Layout ---- */
 .page {
-  max-width: 780px;
+  max-width: 860px;
   margin: 0 auto;
   padding: var(--space-7) var(--space-4) var(--space-9);
 }
@@ -457,6 +471,31 @@ section h2 {
   border-color: var(--teal);
 }
 
+/* ---- Theme Toggle ---- */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: var(--space-1);
+  font-family: inherit;
+  font-size: var(--text-base);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
 /* ---- Footer ---- */
 .footer {
   margin-top: var(--space-8);
@@ -523,8 +562,182 @@ section h2 {
   }
 }
 
+/* ---- Project Cards ---- */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.project-card-visual {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-visual .card-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+}
+
+.project-card-visual .card-metric {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.project-card-body {
+  padding: var(--space-3) var(--space-3) var(--space-4);
+}
+
+.project-card-title {
+  font-weight: 600;
+  font-size: var(--text-base);
+  margin-bottom: var(--space-1);
+}
+
+.project-card-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Card color variants */
+.card-dark {
+  background: #1a1a1a;
+}
+
+.card-teal {
+  background: linear-gradient(135deg, #005f5f 0%, #008080 50%, #00a3a3 100%);
+}
+
+.card-slate {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.card-charcoal {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+/* ---- Metrics Strip ---- */
+.metrics-strip {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  padding: var(--space-4) 0;
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-value {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.metric-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ---- Compact Hero (visual-first) ---- */
+.hero-compact {
+  padding: var(--space-7) 0 var(--space-3);
+}
+
+.hero-compact .thesis {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: var(--space-2);
+}
+
+.hero-compact .thesis em {
+  color: var(--teal);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hero-compact .hero-sub {
+  font-size: var(--text-md);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ---- Section Heading (visual pages) ---- */
+.section-heading {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-top: var(--space-7);
+  margin-bottom: var(--space-3);
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-visual {
+    height: 140px;
+  }
+
+  .metrics-strip {
+    gap: var(--space-3);
+  }
+
+  .hero-compact .thesis {
+    font-size: 1.5rem;
+  }
+}
+
 /* ---- Print ---- */
 @media print {
+  :root, [data-theme="dark"] {
+    --text: #1a1a1a;
+    --text-secondary: #363636;
+    --text-muted: #6e6e6e;
+    --bg: #ffffff;
+    --teal: #008080;
+  }
   body { font-size: 12pt; background: white; }
   body::before { display: none; }
   nav { display: none; }

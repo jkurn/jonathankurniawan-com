@@ -4,11 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jonathan Kurniawan</title>
-<meta name="description" content="I build AI agents that work when a regulator is watching. Production AI systems for governments and financial institutions. Sydney, Australia.">
-<meta property="og:title" content="Jonathan Kurniawan">
-<meta property="og:description" content="I build AI agents that work when a regulator is watching. Production AI systems for governments and financial institutions.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://jonathankurniawan.com">
+<meta name="description" content="I build AI systems for organizations that can't afford a wrong answer. Sydney, Australia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -24,46 +20,111 @@
     <li><a href="speaking.html">Speaking</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
+  <button class="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
 </nav>
 
 <div class="page">
 
-  <div class="hero">
-    <p class="thesis">I build AI agents that work when <em>a regulator is watching</em>. Most don&rsquo;t. I&rsquo;ve spent the last decade closing the gap between AI demos and AI in production.</p>
-
-    <p class="intro">I ship production AI systems for governments and financial institutions &mdash; clients who cannot afford a wrong answer. I have built and led the organizations that sustain those systems at scale: 80-person AI teams, governance frameworks, evaluation pipelines. The technical problem is rarely the hard part. The hard part is context management &mdash; making sure every person and every system has the right information to make the right decision.</p>
-
-    <p class="name-line"><strong>Jonathan Kurniawan</strong> &mdash; Sydney, Australia</p>
-
-    <p class="anchor-credential">Previously <strong>VP Data at Bukalapak</strong> (70M users, 10x CAC reduction). <strong>Chief Product Officer at Prodago</strong> (Gartner Cool Vendor in AI Governance). Production AI shipped across 4 continents.</p>
+  <!-- Hero: Name + identity + philosophy in 3 lines -->
+  <div class="hero-compact">
+    <p class="thesis">I build AI systems for organizations that <em>can&rsquo;t afford a wrong answer.</em></p>
+    <p class="hero-sub">I believe the future belongs to organizations that can trust their AI agents to make the right decisions autonomously &mdash; with the right context, governance, and leadership behind them. I call that standard <strong style="color: var(--teal);">Airworthy</strong>, and it&rsquo;s what I&rsquo;m building toward.</p>
+    <p class="hero-sub" style="margin-top: var(--space-3);"><strong>Jonathan Kurniawan</strong> &mdash; Sydney, Australia</p>
   </div>
+
+  <!-- Proof badges -->
+  <div class="metrics-strip">
+    <div class="metric-item">
+      <span class="metric-value">70M+</span>
+      <span class="metric-label">users served</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">80-person</span>
+      <span class="metric-label">AI &amp; data org</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">4 continents</span>
+      <span class="metric-label">production AI</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-value">Gartner</span>
+      <span class="metric-label">Cool Vendor</span>
+    </div>
+  </div>
+
+  <!-- Work: show it, don't explain it -->
+  <p class="section-heading">Selected Work</p>
+
+  <div class="project-grid">
+
+    <a href="work.html" class="project-card">
+      <div class="project-card-visual card-dark">
+        <span class="card-label">Bukalapak &middot; VP Data</span>
+        <span class="card-metric">10x</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-title">AI &amp; Data Organization at Scale</div>
+        <div class="project-card-desc">Built and led an 80-person cross-functional team. 10x CAC reduction, 8.7x funnel conversion improvement for a 70M-user platform.</div>
+      </div>
+    </a>
+
+    <a href="work.html" class="project-card">
+      <div class="project-card-visual card-teal">
+        <span class="card-label">Government of Canada</span>
+        <span class="card-metric">40%</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-title">RAG Compliance Platform</div>
+        <div class="project-card-desc">Production RAG system for regulatory document querying. Sub-3 second latency, 40% reduction in inference costs.</div>
+      </div>
+    </a>
+
+    <a href="work.html" class="project-card">
+      <div class="project-card-visual card-charcoal">
+        <span class="card-label">MENA Government</span>
+        <span class="card-metric">6 weeks</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-title">First Production AI Agent</div>
+        <div class="project-card-desc">Deployed a government&rsquo;s first AI agent from zero to production in six weeks. 99% task completion from month one.</div>
+      </div>
+    </a>
+
+    <a href="work.html" class="project-card">
+      <div class="project-card-visual card-slate">
+        <span class="card-label">Prodago &middot; CPO</span>
+        <span class="card-metric">Gartner CV</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-title">AI Governance Toolkit</div>
+        <div class="project-card-desc">Chief Product Officer for enterprise AI governance platform. Named Gartner Cool Vendor in AI Governance.</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Deeper pages -->
+  <p class="section-heading">Explore</p>
 
   <div class="home-sections">
     <a href="thinking.html" class="home-section-link">
       <div class="section-link-content">
         <div class="section-link-title">Thinking</div>
-        <div class="section-link-desc">On production AI, governance, and why context management is the real skill</div>
-      </div>
-      <span class="section-link-arrow">&rarr;</span>
-    </a>
-    <a href="work.html" class="home-section-link">
-      <div class="section-link-content">
-        <div class="section-link-title">Work</div>
-        <div class="section-link-desc">Selected outcomes from government, financial services, and enterprise AI</div>
+        <div class="section-link-desc">On AI agents, governance, and why mastery requires more than technology</div>
       </div>
       <span class="section-link-arrow">&rarr;</span>
     </a>
     <a href="speaking.html" class="home-section-link">
       <div class="section-link-content">
         <div class="section-link-title">Speaking &amp; Writing</div>
-        <div class="section-link-desc">Talks, essays, and appearances on AI leadership and responsible AI</div>
+        <div class="section-link-desc">GITEX, Hult, Indonesia Product Conference, podcasts, and essays</div>
       </div>
       <span class="section-link-arrow">&rarr;</span>
     </a>
     <a href="about.html" class="home-section-link">
       <div class="section-link-content">
         <div class="section-link-title">About</div>
-        <div class="section-link-desc">Career arc, current roles, and how to get in touch</div>
+        <div class="section-link-desc">Career arc, current work, and contact</div>
       </div>
       <span class="section-link-arrow">&rarr;</span>
     </a>
